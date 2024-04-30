@@ -42,7 +42,6 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // You can add more fields as needed, such as ticketPrice, capacity, etc.
 });
 
 const Event = mongoose.model("Event", eventSchema);
