@@ -4,7 +4,10 @@ body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   background-image: url("./photo-1443186547344-.png");
-  background-size: cover;
+  background-size: 100% auto;
+  background-position-y: 55px;
+  background-repeat: no-repeat;
+  color: #000000;
 }
 
 .container {
