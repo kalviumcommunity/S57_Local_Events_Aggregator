@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage";
+import MySwiper from "./components/Swiper";
 import "./App.css";
 
 function App() {
@@ -10,9 +11,10 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<HomePage />} />
           <Route path="/Navbar" element={<Navbar />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/MainPage" element={<MainPage />} />
+          <Route path="/MySwiper" element={<MySwiper />} />
           {/* Add more routes as needed */}
         </Routes>
       </div>
