@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import cart from "../images/1.png";
-import search from "../images/2.png";
-
+import login from "../images/3.png";
+import MySwiper from "./Swiper";
 function Navbar() {
   return (
     <nav>
@@ -16,7 +16,7 @@ function Navbar() {
 
         <li>
           <Link className="bar" to="/">
-            <div id="btn" class="button">
+            <div id="btn" className="button">
               <div id="btn" className="box">
                 H
               </div>
@@ -34,7 +34,7 @@ function Navbar() {
         </li>
         <li>
           <Link className="bar" to="/">
-            <div class="button">
+            <div className="button">
               <div className="box">T</div>
               <div className="box">R</div>
               <div className="box">E</div>
@@ -45,7 +45,7 @@ function Navbar() {
         </li>
         <li>
           <Link className="bar" to="/news">
-            <div class="button">
+            <div className="button">
               <div className="box">E</div>
               <div className="box">V</div>
               <div className="box">E</div>
@@ -56,13 +56,12 @@ function Navbar() {
         </li>
         <li>
           <div className="search-container">
-            <img src={search} alt="Search" className="searchicon" />
             <input type="text" placeholder="Search..." className="search-bar" />
           </div>
         </li>
         <li>
-          <Link className="bar" to="/contact">
-            <div class="button">
+          <Link className="bar" to="/MySwiper ">
+            <div className="button">
               <div className="box">U</div>
               <div className="box">P</div>
               <div className="box">C</div>
@@ -76,7 +75,7 @@ function Navbar() {
         </li>
         <li>
           <Link className="bar" to="/contact">
-            <div class="button">
+            <div className="button">
               <div className="box">C</div>
               <div className="box">O</div>
               <div className="box">N</div>
@@ -89,7 +88,8 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <img src={cart} />
+          <img src={cart} alt="Cart" className="cart-icon" />
+          <img src={login} alt="Login" className="login-icon" />
         </li>
       </ul>
     </nav>

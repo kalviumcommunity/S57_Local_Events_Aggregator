@@ -16,9 +16,14 @@ nav {
 .search-container {
   margin-top: 13px;
 }
-.searchicon {
-  margin-right: 2px;
+.cart-icon {
+  margin-left: 5px;
+  margin-top: 15px;
 }
+.login-icon {
+  margin-left: 15px;
+}
+
 .search-bar {
   width: 180px;
   height: 25px;
