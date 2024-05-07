@@ -1,13 +1,14 @@
 import React from "react";
 import Navbar from "./Navbar";
 import MySwiper from "./Swiper";
-import "./MainPage.css";
+import Event from "./Event";
 
 function HomeComponent() {
   return (
     <div>
       <Navbar />
       <MySwiper />
+      <Event />
     </div>
   );
 }

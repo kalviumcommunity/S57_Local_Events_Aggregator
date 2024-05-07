@@ -60,7 +60,7 @@ function Navbar() {
           </div>
         </li>
         <li>
-          <Link className="bar" to="/MySwiper">
+          <Link className="bar" to="/MySwiper ">
             <div className="button">
               <div className="box">U</div>
               <div className="box">P</div>

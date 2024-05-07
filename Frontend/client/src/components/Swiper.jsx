@@ -185,7 +185,7 @@ const MySwiper = () => {
                   </p>
                 </div>
               </div>
-              <div className="swiper-slide swiper-slide--one">
+              <div className="swiper-slide swiper-slide--six">
                 <span>native</span>
                 <div>
                   <h2>Another Great Destination</h2>
@@ -213,7 +213,7 @@ const MySwiper = () => {
                   </p>
                 </div>
               </div>
-              <div className="swiper-slide swiper-slide--two">
+              <div className="swiper-slide swiper-slide--seven">
                 <span>native</span>
                 <div>
                   <h2>Another Great Destination</h2>
