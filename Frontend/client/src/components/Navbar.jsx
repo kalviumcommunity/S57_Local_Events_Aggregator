@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import cart from "../images/1.png";
 import login from "../images/3.png";
-import MySwiper from "./Swiper";
+
 function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <nav>
+    <nav className={scrolled ? "scrolled" : ""}>
       <ul className="nav-links">
         <li>
-          <Link className="logo" to="/Title">
+          <Link className="logo" to="/">
             Vibes Hub
           </Link>
         </li>
@@ -44,7 +61,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link className="bar" to="/news">
+          <Link className="bar" to="/Event">
             <div className="button">
               <div className="box">E</div>
               <div className="box">V</div>
@@ -60,7 +77,7 @@ function Navbar() {
           </div>
         </li>
         <li>
-          <Link className="bar" to="/MySwiper ">
+          <Link to="#swiper-section" className="bar">
             <div className="button">
               <div className="box">U</div>
               <div className="box">P</div>
@@ -88,7 +105,6 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <img src={cart} alt="Cart" className="cart-icon" />
           <img src={login} alt="Login" className="login-icon" />
         </li>
       </ul>

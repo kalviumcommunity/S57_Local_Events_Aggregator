@@ -4,6 +4,7 @@ import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage";
 import MySwiper from "./components/Swiper";
+import Event from "./components/Event";
 import "./App.css";
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
           <Route path="/Navbar" element={<Navbar />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/MainPage" element={<MainPage />} />
-          <Route path="/MySwiper" element={<MySwiper />} />
+          <Route path="/Event" element={<Event />} />
+          <Route path="/ok" element={<swiper-section />} />
           {/* Add more routes as needed */}
         </Routes>
       </div>

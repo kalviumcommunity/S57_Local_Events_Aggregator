@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .swiper-heading h2 {
   position: absolute;
   bottom: -68%;
@@ -146,7 +147,7 @@
 }
 .swiper-slide--six {
   background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
-    url("https://i.pinimg.com/564x/34/1c/bf/341cbf7c5db4667a4954d8262763f11e.jpg")
+    url("https://i.pinimg.com/564x/2a/54/b9/2a54b9847c722327202d972b8fbac9a9.jpg  ")
       no-repeat 50% 50% / cover;
 }
 .swiper-slide--seven {
