@@ -58,7 +58,7 @@ const Event = () => {
       <img className="design-left" src={designleft} alt="" />
       <img className="design-rights" src={designrights} alt="" />
       <div className="frame">
-        <Link to="/" className="custom-btn btn-5">
+        <Link to="/MainEvent#ivent" className="custom-btn btn-5">
           <span>To Know More About Event Click me!</span>
         </Link>
       </div>

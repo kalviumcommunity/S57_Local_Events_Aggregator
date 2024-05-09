@@ -38,8 +38,8 @@ const MySwiper = () => {
 
   return (
     <>
-      <div id="#swiper-section">
-        <div className="swiper-co">
+      <div id="">
+        <div id="swiper-section" className="swiper-co">
           <div className="swiper-heading">
             <h2>Upcoming Events</h2>
           </div>

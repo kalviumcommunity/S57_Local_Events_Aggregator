@@ -77,7 +77,7 @@ function Navbar() {
           </div>
         </li>
         <li>
-          <Link to="#swiper-section" className="bar">
+          <Link to="/MySwiper#swiper-section" className="bar">
             <div className="button">
               <div className="box">U</div>
               <div className="box">P</div>
