@@ -67,10 +67,10 @@
   color: #fff;
   background: #1b7402;
   padding: 7px 18px 7px 25px;
-  margin-left: 200px;
+  margin-left: 0px;
   margin-bottom: 255px;
   display: inline-block;
-  border-radius: 20px 20px 20px 0px;
+  border-radius: 10px 0px 0px 0px;
   letter-spacing: 2px;
   font-size: 0.8rem;
   font-family: "Open Sans", sans-serif;
