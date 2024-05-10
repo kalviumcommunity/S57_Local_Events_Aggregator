@@ -46,7 +46,12 @@ const MySwiper = () => {
           <div className="swiper-container">
             <div className="swiper">
               <div className="swiper-wrapper">
-                <div className="swiper-slide swiper-slide--one">
+                <div
+                  onClick={() => {
+                    window.location.href = "/event";
+                  }}
+                  className="swiper-slide swiper-slide--one"
+                >
                   <span>domestic</span>
                   <div>
                     <h2>Enjoy the exotic of sunny Hawaii</h2>
@@ -103,7 +108,7 @@ const MySwiper = () => {
                   </div>
                 </div>
                 <div className="swiper-slide swiper-slide--three">
-                  <span>history</span>
+                  <span>History</span>
                   <div>
                     <h2>Awesome Eiffel Tower</h2>
                     <p>
