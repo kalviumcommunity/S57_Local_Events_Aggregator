@@ -1,0 +1,69 @@
+.contact-form-container {
+  max-width: 400px;
+  margin-top: 100px;
+  margin-left: 700px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+.contact-container {
+  border: 5px solid #ccc;
+  width: 80%;
+  height: 500px;
+  margin-top: 900px;
+  margin-left: 150px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+
+.contact-form button:active {
+  background-color: #3e8e41;
+}
+.additional-contact-details {
+  width: 200px;
+  margin-left: 50px;
+  margin-top: -300px; /* Add space between the form and additional details */
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.additional-contact-details h2 {
+  margin-bottom: 10px;
+  color: #333; /* Darken the heading color */
+}
+
+.additional-contact-details p {
+  margin: 5px 0;
+  color: #666; /* Adjust paragraph text color */
+}
+
+.additional-contact-details p:first-child {
+  margin-top: 0; /* Remove top margin for the first paragraph */
+}
