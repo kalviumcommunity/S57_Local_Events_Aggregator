@@ -1,14 +1,23 @@
+.contact {
+  background-image: url(../images/Contact.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 95%;
+  height: auto;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
 .contact-form-container {
   max-width: 400px;
-  margin-top: 100px;
-  margin-left: 700px;
+  margin-top: 50px;
+  margin-left: 800px;
   padding: 20px;
-  border: 1px solid #ccc;
+  color: #ffffff;
 }
+
 .contact-container {
-  border: 5px solid #ccc;
   width: 80%;
-  height: 500px;
+  height: 480px;
   margin-top: 900px;
   margin-left: 150px;
   padding: 20px;
@@ -45,25 +54,52 @@
 .contact-form button:active {
   background-color: #3e8e41;
 }
-.additional-contact-details {
-  width: 200px;
-  margin-left: 50px;
-  margin-top: -300px; /* Add space between the form and additional details */
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 5px;
+.call-container {
+  justify-content: center;
+  align-items: center;
+  margin-top: -180px;
+  color: #ff0000;
+}
+.call-container p {
+  margin-top: -55px;
+  margin-left: 20px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+.additional-contact-details ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 380px;
 }
 
-.additional-contact-details h2 {
-  margin-bottom: 10px;
-  color: #333; /* Darken the heading color */
+.additional-contact-details li {
+  margin-top: -350px;
+  margin-right: 40px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: #ffffff;
 }
 
-.additional-contact-details p {
-  margin: 5px 0;
-  color: #666; /* Adjust paragraph text color */
+/* Optional: Add hover effect */
+.additional-contact-details li:hover {
+  color: #ff0000;
+  cursor: pointer;
 }
 
-.additional-contact-details p:first-child {
-  margin-top: 0; /* Remove top margin for the first paragraph */
+.copyright {
+  margin-top: 140px;
+  margin-left: 40px;
+  text-align: center;
+  color: #ffffff;
+}
+h6 {
+  color: #ff0000;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  margin-left: 3px;
+  margin-top: -10px;
 }
