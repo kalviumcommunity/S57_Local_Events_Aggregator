@@ -12,6 +12,10 @@ function HomeComponent() {
       <MySwiper />
       <Event />
       <ContactForm />
+      <p>
+        Welcome to Local Event Aggregator your go-to platform for discovering
+        local events!
+      </p>
     </div>
   );
 }
