@@ -1,17 +1,22 @@
 /* HomePage.css */
-
 .container {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
   padding: 50px;
-  background-color: #1f1f1f;
 }
-
+.home-page {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-top: 20px;
+  overflow: hidden;
+}
 h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #fafafa;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -24,7 +29,7 @@ p {
 .get-started-btn {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #4caf50;
+  background-color: #07ced8;
   color: #fff;
   text-decoration: none;
   font-size: 1.4rem;
