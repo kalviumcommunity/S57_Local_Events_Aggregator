@@ -1,4 +1,5 @@
 const { default: mongoose } = require("mongoose");
+const { type } = require("os");
 
 const eventSchema = new mongoose.Schema({
   Title: {
@@ -9,36 +10,15 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Location: {
-    type: String,
-    required: true,
-  },
   Date: {
-    type: Date,
+    type: Number,
     required: true,
   },
-  StartTime: {
+  Month: {
     type: String,
     required: true,
   },
-  EndTime: {
-    type: String,
-    required: true,
-  },
-  ImageUrl: {
-    type: String,
-    required: false,
-  },
-  Category: {
-    type: String,
-    enum: ["concert", "festival", "market", "community gathering", "other"],
-    required: true,
-  },
-  Organizer: {
-    type: String,
-    required: true,
-  },
-  ContactEmail: {
+  Websitelink: {
     type: String,
     required: true,
   },
