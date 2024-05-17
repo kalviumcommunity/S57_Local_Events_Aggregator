@@ -3,13 +3,17 @@ require("dotenv").config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      `mongodb+srv://naveennaveen:naveen@cluster0.qodf0oq.mongodb.net/Capstone?retryWrites=true&w=majority&appName=Cluster0`
-    );
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("MongoDB connected");
   } catch (err) {
-    console.error("Error connecting to mongoDB:", err.message);
+    console.error("Error connecting to MongoDB:", err.message);
+    process.exit(1); // Exit process with failure
   }
 };
+
 const checkConnection = () => {
   const dbStatus = mongoose.connection.readyState;
   return dbStatus === 1;
