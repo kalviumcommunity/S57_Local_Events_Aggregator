@@ -10,6 +10,7 @@
   width: 90%;
   justify-content: center;
   margin-left: 75px;
+  margin-bottom: -100px;
 }
 .event-img {
   width: 100%;
