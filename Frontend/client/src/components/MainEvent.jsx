@@ -22,40 +22,34 @@ const MainEvent = () => {
   const oddIndexEvents = events.filter((event, index) => index % 2 !== 0);
   const evenIndexEvents = events.filter((event, index) => index % 2 === 0);
 
+  // Interleave odd and even events
+  const interleavedEvents = [];
+  const maxLength = Math.max(oddIndexEvents.length, evenIndexEvents.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    if (evenIndexEvents[i])
+      interleavedEvents.push({ ...evenIndexEvents[i], type: "even" });
+    if (oddIndexEvents[i])
+      interleavedEvents.push({ ...oddIndexEvents[i], type: "odd" });
+  }
+
   return (
     <div className="event-container">
-      <div className="odd-events">
-        <h2>Odd Events</h2>
-        {oddIndexEvents.map((event) => (
-          <div key={event.Title} className="event">
+      <div className="events">
+        {interleavedEvents.map((event, index) => (
+          <div key={index} className="event">
             <div className="image">
-              <img src={event.ImageUrl} className="event-img" alt="" />
+              <img
+                src={event.ImageUrl}
+                className={event.type === "odd" ? "event-img" : "event-img-two"}
+                alt=""
+              />
             </div>
-            <div className="details">
+            <div className={event.type === "odd" ? "details" : "details-two"}>
               <h5>About</h5>
               <h1>{event.Title}</h1>
               <p>{event.Description}</p>
-              <div className="para">
-                <img src={event.k} alt="" />
-                <h2>{event.Date}</h2>
-                <h3>{event.Month}</h3>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="even-events">
-        <h2>Even Events</h2>
-        {evenIndexEvents.map((event) => (
-          <div key={event.Title} className="event">
-            <div className="image">
-              <img src={event.ImageUrl} className="event-img-two" alt="" />
-            </div>
-            <div className="details-two">
-              <h5>About</h5>
-              <h1>{event.Title}</h1>
-              <p>{event.Description}</p>
-              <div className="para-two">
+              <div className={event.type === "odd" ? "para" : "para-two"}>
                 <img src={event.k} alt="" />
                 <h2>{event.Date}</h2>
                 <h3>{event.Month}</h3>
