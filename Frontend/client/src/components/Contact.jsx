@@ -19,8 +19,17 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in all fields");
+      return;
+    }
     console.log(formData);
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+    alert("Form submitted successfully");
   };
 
   return (
