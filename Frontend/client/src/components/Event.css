@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 .event {
   display: flex;
@@ -17,6 +18,7 @@
   margin-top: 60px;
   margin-right: 40px;
   padding-right: 735px;
+  margin-bottom: 50px;
 }
 .details {
   padding: 20px;
@@ -31,30 +33,9 @@
   background-position-y: 5%;
   background-size: 80% auto;
 }
-.details-two {
-  padding: 20px;
-  width: 740px;
-  height: 430px;
-  background-color: #3d3b42;
-  margin-top: -310px;
-  margin-left: -590px;
-  background-image: url(../images/About.png);
-  background-repeat: no-repeat;
-  background-position-x: 20%;
-  background-position-y: 5%;
-  background-size: 80% auto;
-}
-.event-img-two {
-  width: 100%;
-  height: 370px;
-  margin-top: 40px;
-  margin-right: 40px;
-  padding-left: 760px;
-}
 
 h5 {
   color: #d3d3d5;
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.4;
@@ -63,7 +44,6 @@ h5 {
 }
 h1 {
   color: #ffffff;
-  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 1.4;
@@ -73,7 +53,6 @@ h1 {
 }
 p {
   color: #d3d3d5;
-  font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.6;
@@ -95,13 +74,9 @@ p {
   margin-top: -320px;
   margin-left: 450px;
 }
-.para-two {
-  margin-top: -320px;
-  margin-left: 450px;
-}
+
 h2 {
   color: #ffffff;
-  font-family: "Roboto", sans-serif;
   font-weight: 800;
   font-size: 1.2rem;
   line-height: 1.4;
@@ -109,10 +84,15 @@ h2 {
   margin-left: 15px;
   padding-top: 5px;
 }
-
+.event-heading {
+  color: #000000;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
 h3 {
   color: #ffffff;
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.4;
@@ -139,7 +119,7 @@ h3 {
   width: 100%;
   margin: -520px auto;
   text-align: center;
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 .custom-btn {
@@ -148,7 +128,6 @@ h3 {
   color: #fff;
   border-radius: 0px;
   padding: 10px 25px;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;

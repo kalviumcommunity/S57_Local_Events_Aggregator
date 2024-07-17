@@ -15,7 +15,7 @@ const Event = () => {
     axios
       .get("http://localhost:3000/api/events")
       .then((response) => {
-        setEvents(response.data);
+        setEvents(response.data.slice(0, 2)); // Only take the first 2 events
       })
       .catch((error) => {
         console.log(error);
@@ -24,6 +24,7 @@ const Event = () => {
 
   return (
     <div className="event">
+      <h1 className="event-heading">Available Events</h1>
       {events.map((event, index) => (
         <React.Fragment key={index}>
           <div className="image">

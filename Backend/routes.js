@@ -11,13 +11,14 @@ router.get("/events", async (req, res) => {
 });
 router.post("/events/postevent", async (req, res) => {
   try {
-    const { Title, Description, Date, Month, Websitelink } = req.body;
+    const { Title, Description, Date, Month, Websitelink, ImageUrl } = req.body;
     const event = await Localevent.create({
       Title,
       Description,
       Date,
       Month,
       Websitelink,
+      ImageUrl,
     });
     res.json(event);
   } catch (err) {

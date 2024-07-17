@@ -3,115 +3,33 @@
   padding: 0;
   box-sizing: border-box;
 }
-.event {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-  justify-content: center;
-  margin-top: 140px;
-  background-image: none;
+.event-img-main {
+  width: 600px;
+  height: 380px;
+  position: relative;
+  right: 400px;
 }
-#cont {
-  margin-top: 40px;
+.event-heading {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 1.4;
+  margin-bottom: 100px;
 }
-.event-img {
-  width: 100%;
-  height: 370px;
-  margin-top: 60px;
-  margin-right: 40px;
-  padding-right: 735px;
-}
-.details {
+.details-main {
   padding: 20px;
   width: 740px;
   height: 430px;
   background-color: #3d3b42;
   margin-top: -435px;
   margin-left: 615px;
+  margin-bottom: 100px;
   background-image: url(../images/About.png);
   background-repeat: no-repeat;
   background-position-x: 20%;
   background-position-y: 5%;
   background-size: 80% auto;
-}
-.details-two {
-  padding: 20px;
-  width: 740px;
-  height: 430px;
-  background-color: #3d3b42;
-  margin-top: -310px;
-  margin-left: -590px;
-  background-image: url(../images/About.png);
-  background-repeat: no-repeat;
-  background-position-x: 20%;
-  background-position-y: 5%;
-  background-size: 80% auto;
-}
-.event-img-two {
-  width: 100%;
-  height: 370px;
-  margin-top: 40px;
-  margin-right: 40px;
-  padding-left: 760px;
-}
-
-h5 {
-  color: #d3d3d5;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1.2rem;
-  line-height: 1.4;
-  margin-top: 30px;
-  padding: 50px 45px 0 25px;
-}
-h1 {
-  color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 1.8rem;
-  line-height: 1.4;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  padding: 20px 45px 0 20px;
-}
-p {
-  color: #d3d3d5;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  padding: 30px 45px 0 25px;
-}
-.para {
-  margin-top: -320px;
-  margin-left: 450px;
-}
-.para-two {
-  margin-top: -320px;
-  margin-left: 450px;
-}
-h2 {
-  color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  font-weight: 800;
-  font-size: 1.2rem;
-  line-height: 1.4;
-  margin-top: -66px;
-  margin-left: 15px;
-  padding-top: 5px;
-}
-
-h3 {
-  color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-top: -10px;
-  margin-left: 13px;
-  padding-top: 5px;
 }
 /* styles.css */
 .home-btn {
