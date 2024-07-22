@@ -1,8 +1,31 @@
-* {
+html,
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden; /* Hide scrollbars globally */
 }
+
+.scrollable-container {
+  height: 100vh; /* Full viewport height */
+  overflow: auto; /* Enable scrolling */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.scrollable-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.scrollable-container {
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for IE and Edge */
+.scrollable-container {
+  -ms-overflow-style: none; /* Hide scrollbar */
+}
+
 .event-img-main {
   width: 600px;
   height: 380px;

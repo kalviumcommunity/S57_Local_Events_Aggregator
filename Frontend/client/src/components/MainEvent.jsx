@@ -19,28 +19,30 @@ const MainEvent = () => {
   }, []);
 
   return (
-    <div className="event">
-      <h1 className="event-heading">Events</h1>
-      {events.map((event, index) => (
-        <React.Fragment key={index}>
-          <div className="image">
-            <img src={event.ImageUrl} className="event-img-main" alt="" />
-          </div>
-          <div className="details-main">
-            <h5>About</h5>
-            <h1>{event.Title}</h1>
-            <p>{event.Description}</p>
-            <div className="para">
-              <img src={para} alt="" />
-              <h2>{event.Date}</h2>
-              <h3>{event.Month}</h3>
+    <div className="scrollable-container">
+      <div className="event">
+        <h1 className="event-heading">Events</h1>
+        {events.map((event, index) => (
+          <React.Fragment key={index}>
+            <div className="image">
+              <img src={event.ImageUrl} className="event-img-main" alt="" />
             </div>
-          </div>
-        </React.Fragment>
-      ))}
-      <Link to="/" className="home-btn">
-        Back To Home
-      </Link>
+            <div className="details-main">
+              <h5>About</h5>
+              <h1>{event.Title}</h1>
+              <p>{event.Description}</p>
+              <div className="para">
+                <img src={para} alt="" />
+                <h2>{event.Date}</h2>
+                <h3>{event.Month}</h3>
+              </div>
+            </div>
+          </React.Fragment>
+        ))}
+        <Link to="/" className="home-btn">
+          Back To Home
+        </Link>
+      </div>
     </div>
   );
 };

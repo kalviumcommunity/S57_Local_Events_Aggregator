@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Event.css";
-import eventimage from "../images/Event.jpg";
-import kiteimage from "../images/Kite.jpg";
 import para from "../images/para.png";
 import designrights from "../images/ego.png";
 import designleft from "../images/egoleft.png";
@@ -28,11 +26,7 @@ const Event = () => {
       {events.map((event, index) => (
         <React.Fragment key={index}>
           <div className="image">
-            <img
-              src={index % 2 === 0 ? eventimage : kiteimage}
-              className="event-img"
-              alt=""
-            />
+            <img src={event.ImageUrl} className="event-img" alt="" />
           </div>
           <div className="details">
             <h5>About</h5>

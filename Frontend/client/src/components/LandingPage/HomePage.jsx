@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./HomePage.css";
+import "../LandingPage/HomePage.css";
 
 const HomePage = () => {
   return (
@@ -11,7 +11,11 @@ const HomePage = () => {
           Welcome to Local Event Aggregator, your go-to platform for discovering
           local events!
         </p>
-        <Link to="/MainPage" className="get-started-btn">
+        <Link
+          to="/Mainpage
+        "
+          className="get-started-btn"
+        >
           Get Started
         </Link>
       </div>
