@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import ReactGA from "react-ga";
 import HomePage from "./components/LandingPage/HomePage";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage/MainPage";
@@ -9,20 +10,20 @@ import Event from "./components/Event";
 import ScrollTop from "./components/ScrollTop";
 import SignInSignupWithLocalStorage from "./components/Authentication/SignInout";
 import "./App.css";
-import ReactGA from "react-ga";
 
-const trackingId = "G-SSM973B738"; // Replace with your actual tracking ID
+// Your Google Analytics tracking ID
+const trackingId = "G-SSM973B738";
 
 function usePageViews() {
   const location = useLocation();
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
-  }, [location]);
+  }, [location.pathname, location.search]);
 }
 
 function App() {
   useEffect(() => {
-    ReactGA.initialize(trackingId); // Initialize GA
+    ReactGA.initialize(trackingId); // Initialize GA without debug mode
     ReactGA.pageview(window.location.pathname + window.location.search); // Track initial page view
   }, []);
 
