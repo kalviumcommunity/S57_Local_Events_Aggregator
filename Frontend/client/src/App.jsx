@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ReactGA from "react-ga";
+import TagManager from "react-gtm-module";
 import HomePage from "./components/LandingPage/HomePage";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage/MainPage";
@@ -13,6 +14,12 @@ import "./App.css";
 
 // Your Google Analytics tracking ID
 const trackingId = "G-SSM973B738";
+
+// Initialize GTM
+const tagManagerArgs = {
+  gtmId: "GTM-5L4T6356",
+};
+TagManager.initialize(tagManagerArgs);
 
 function usePageViews() {
   const location = useLocation();
