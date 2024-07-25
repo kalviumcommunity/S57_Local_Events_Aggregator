@@ -20,32 +20,56 @@ const Event = () => {
       });
   }, []);
 
+  const firstEvent = events[0];
+  const secondEvent = events[1];
+
   return (
+<<<<<<< HEAD
     <div className="event">
       <h1 className="event-heading">Available Events</h1>
       {events.map((event, index) => (
         <React.Fragment key={index}>
           <div className="image">
             <img src={event.ImageUrl} className="event-img" alt="" />
+=======
+    <div>
+      <div className="event">
+        <div className="image">
+          <img src={eventimage} className="event-img" alt="" />
+        </div>
+        <div className="details">
+          <h5>About</h5>
+          <h1>{firstEvent && firstEvent.Title}</h1>
+          <p>{firstEvent && firstEvent.Description}</p>
+          <div className="para">
+            <img src={para} alt="" />
+            <h2>{firstEvent && firstEvent.Date}</h2>
+            <h3>{firstEvent && firstEvent.Month}</h3>
+>>>>>>> e50642e73a96d1aa7d64208da68a570d1bbda60c
           </div>
-          <div className="details">
-            <h5>About</h5>
-            <h1>{event.Title}</h1>
-            <p>{event.Description}</p>
-            <div className="para">
-              <img src={para} alt="" />
-              <h2>{event.Date}</h2>
-              <h3>{event.Month}</h3>
-            </div>
+        </div>
+      </div>
+      <div className="event">
+        <div className="image">
+          <img src={kiteimage} className="event-img-two" alt="" />
+        </div>
+        <div className="details-two">
+          <h5>About</h5>
+          <h1>{secondEvent && secondEvent.Title}</h1>
+          <p>{secondEvent && secondEvent.Description}</p>
+          <div className="para">
+            <img src={para} alt="" />
+            <h2>{secondEvent && secondEvent.Date}</h2>
+            <h3>{secondEvent && secondEvent.Month}</h3>
           </div>
-        </React.Fragment>
-      ))}
-      <img className="design-left" src={designleft} alt="" />
-      <img className="design-rights" src={designrights} alt="" />
-      <div className="frame">
-        <Link to="/Mainevent" className="custom-btn btn-5">
-          <span>To Know More About Event Click me!</span>
-        </Link>
+        </div>
+        <img className="design-left" src={designleft} alt="" />
+        <img className="design-rights" src={designrights} alt="" />
+        <div className="frame">
+          <Link to={`/Mainevent`} className="custom-btn btn-5">
+            <span>To Know More About Event Click me!</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

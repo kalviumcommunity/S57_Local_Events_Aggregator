@@ -26,5 +26,17 @@ router.post("/events/postevent", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+router.put("/events/update/:id", async (req, res) => {
+  try {
+    const event = await Localevent.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    res.json(event);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+});
 
 module.exports = router;
