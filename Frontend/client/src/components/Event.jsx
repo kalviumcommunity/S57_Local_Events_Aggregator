@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Event.css";
-import eventimage from "../images/Event.jpg";
-import kiteimage from "../images/Kite.jpg";
 import para from "../images/para.png";
 import designrights from "../images/ego.png";
 import designleft from "../images/egoleft.png";
@@ -15,7 +13,7 @@ const Event = () => {
     axios
       .get("http://localhost:3000/api/events")
       .then((response) => {
-        setEvents(response.data);
+        setEvents(response.data.slice(0, 2)); // Only take the first 2 events
       })
       .catch((error) => {
         console.log(error);
@@ -26,6 +24,14 @@ const Event = () => {
   const secondEvent = events[1];
 
   return (
+<<<<<<< HEAD
+    <div className="event">
+      <h1 className="event-heading">Available Events</h1>
+      {events.map((event, index) => (
+        <React.Fragment key={index}>
+          <div className="image">
+            <img src={event.ImageUrl} className="event-img" alt="" />
+=======
     <div>
       <div className="event">
         <div className="image">
@@ -39,6 +45,7 @@ const Event = () => {
             <img src={para} alt="" />
             <h2>{firstEvent && firstEvent.Date}</h2>
             <h3>{firstEvent && firstEvent.Month}</h3>
+>>>>>>> e50642e73a96d1aa7d64208da68a570d1bbda60c
           </div>
         </div>
       </div>

@@ -1,17 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/LandingPage/HomePage";
 import Navbar from "./components/Navbar";
-import MainPage from "./components/MainPage";
+import MainPage from "./components/MainPage/MainPage";
 import MySwiper from "./components/Swiper";
 import MainEvent from "./components/MainEvent";
 import Event from "./components/Event";
+import ScrollTop from "./components/ScrollTop";
+import SignInSignupWithLocalStorage from "./components/Authentication/SignInout";
 import "./App.css";
 
 function App() {
   return (
     <Router>
       <div>
+        <ScrollTop />
+
         <Routes>
           <Route path="/Navbar" element={<Navbar />} />
           <Route path="/" element={<HomePage />} />
@@ -19,8 +23,10 @@ function App() {
           <Route path="/Event" element={<Event />} />
           <Route path="/MySwiper" element={<MySwiper />} />
           <Route path="/MainEvent" element={<MainEvent />} />
+
           {/* Add more routes as needed */}
         </Routes>
+        <SignInSignupWithLocalStorage />
       </div>
     </Router>
   );
