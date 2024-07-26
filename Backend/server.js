@@ -4,7 +4,7 @@ const cors = require("cors");
 const { connectDB, checkConnection } = require("./database.js");
 const routes = require("./routes.js");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors()); // Ensure this is placed correctly to handle all routes
