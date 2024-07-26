@@ -97,13 +97,11 @@ function Navbar() {
               <div className="box">O</div>
               <div className="box">G</div>
               <div className="box">I</div>
-              <div className="box">N</div>=
+              <div className="box">N</div>
             </div>
           </Link>
         </li>
-        <li>
-          <img src={login} alt="Login" className="login-icon" />
-        </li>
+        <li></li>
       </ul>
     </nav>
   );

@@ -20,9 +20,6 @@ const Event = () => {
       });
   }, []);
 
-  const firstEvent = events[0];
-  const secondEvent = events[1];
-
   return (
     <div className="event">
       <h1 className="event-heading">Available Events</h1>
@@ -43,27 +40,12 @@ const Event = () => {
           </div>
         </React.Fragment>
       ))}
-      <div className="event">
-        <div className="image">
-          <img src={designrights} className="event-img-two" alt="" />
-        </div>
-        <div className="details-two">
-          <h5>About</h5>
-          <h1>{secondEvent && secondEvent.Title}</h1>
-          <p>{secondEvent && secondEvent.Description}</p>
-          <div className="para">
-            <img src={para} alt="" />
-            <h2>{secondEvent && secondEvent.Date}</h2>
-            <h3>{secondEvent && secondEvent.Month}</h3>
-          </div>
-        </div>
-        <img className="design-left" src={designleft} alt="" />
-        <img className="design-rights" src={designrights} alt="" />
-        <div className="frame">
-          <Link to={`/Mainevent`} className="custom-btn btn-5">
-            <span>To Know More About Event Click me!</span>
-          </Link>
-        </div>
+      <img className="design-left" src={designleft} alt="" />
+      <img className="design-rights" src={designrights} alt="" />
+      <div className="frame">
+        <Link to="/Mainevent" className="custom-btn btn-5">
+          <span>To Know More About Event Click me!</span>
+        </Link>
       </div>
     </div>
   );
