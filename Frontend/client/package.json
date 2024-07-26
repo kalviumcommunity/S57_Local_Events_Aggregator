@@ -2,8 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "vite.config.mjs",
-  "type": "module",
+  "main": "vite.config.js",
   "dependencies": {
     "axios": "^1.7.2",
     "react": "^18.3.1",
