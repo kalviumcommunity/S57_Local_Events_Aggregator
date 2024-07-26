@@ -38,5 +38,15 @@ router.put("/events/update/:id", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
+router.delete("/events/delete/:id", async (req, res) => {
+  try {
+    const event = await Localevent.findByIdAndDelete(req.params.id, req.body, {
+      new: true,
+    });
+    res.json(event);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+});
 module.exports = router;
