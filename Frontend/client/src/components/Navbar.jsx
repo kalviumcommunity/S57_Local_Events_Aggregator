@@ -93,14 +93,11 @@ function Navbar() {
         <li>
           <Link className="bar" to="/contact">
             <div className="button">
-              <div className="box">C</div>
+              <div className="box">L</div>
               <div className="box">O</div>
-              <div className="box">N</div>
-              <div className="box">T</div>
-              <div className="box">A</div>
-              <div className="box">C</div>
-              <div className="box">T</div>
-              <div className="box">S</div>
+              <div className="box">G</div>
+              <div className="box">I</div>
+              <div className="box">N</div>=
             </div>
           </Link>
         </li>
