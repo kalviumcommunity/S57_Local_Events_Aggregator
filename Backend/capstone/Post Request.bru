@@ -5,17 +5,33 @@ meta {
 }
 
 post {
-  url: http://localhost:3000/api/events/postevent
+  url: http://localhost:3000/api/events
   body: json
   auth: none
 }
 
 body:json {
-  {
-    "Title":"Chennain FC VS KeralaBlasters",
-    "Description":"Witness the excitement as Chennai FC takes on Kerala Blasters in a thrilling football match! Experience the adrenaline rush as two fierce teams clash on the field. Cheer for your favorite players and soak in the electrifying atmosphere of the stadium. Don't miss this epic showdown between Chennai FC and Kerala Blasters!",
-    "Date":"02",
-    "Month":"Dec",
-    "Websitelink":".com"
-  }
+   {
+      "attendees": [],
+      "_id": "66ebc3c6c91f00051c7a3ec3",
+      "title": "Flower and Garden Show",
+      "description": "Explore beautiful garden displays, floral arrangements, and horticultural exhibits.",
+      "date": "2023-05-05T10:00:00.000Z",
+      "time": "10:00 AM",
+      "location": "Botanical Gardens, Philadelphia",
+      "category": "Nature",
+      "organizer": "Pennsylvania Horticultural Society",
+      "ticketPrice": 25,
+      "capacity": 250000,
+      "imageUrl": "https://example.com/flower-garden-show.jpg",
+      "websiteLink": "https://flowershow.org",
+      "tags": [
+        "flowers",
+        "gardening",
+        "nature"
+      ],
+      "isFeatured": false,
+      "createdAt": "2024-09-19T07:07:19.131Z",
+      "updatedAt": "2024-09-19T07:07:19.131Z"
+    }
 }

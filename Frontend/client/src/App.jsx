@@ -6,10 +6,12 @@ import HomePage from "./components/LandingPage/HomePage";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage/MainPage";
 import MySwiper from "./components/Swiper";
-import MainEvent from "./components/MainEvent";
-import Event from "./components/Event";
-import ScrollTop from "./components/ScrollTop";
-import SignInSignupWithLocalStorage from "./components/Authentication/SignInout";
+// import MainEvent from "./components/MainEvent";
+import Event from "./components/Event/Event";
+import SignIn from "./components/Authentication/SignIn";
+import SignUp from "./components/Authentication/SignUp";
+import ForgotPassword from "./components/Authentication/ForgotPassword";
+
 import "./App.css";
 
 // Your Google Analytics tracking ID
@@ -30,25 +32,24 @@ function usePageViews() {
 
 function App() {
   useEffect(() => {
-    ReactGA.initialize(trackingId); // Initialize GA without debug mode
-    ReactGA.pageview(window.location.pathname + window.location.search); // Track initial page view
+    ReactGA.initialize(trackingId);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
   usePageViews();
 
   return (
     <div>
-      <ScrollTop />
       <Routes>
         <Route path="/Navbar" element={<Navbar />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/Event" element={<Event />} />
         <Route path="/MySwiper" element={<MySwiper />} />
-        <Route path="/MainEvent" element={<MainEvent />} />
-        {/* Add more routes as needed */}
+        <Route path="/signin" element={<SignIn />} /> {/* Add Sign In route */}
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />{" "}
       </Routes>
-      <SignInSignupWithLocalStorage />
     </div>
   );
 }

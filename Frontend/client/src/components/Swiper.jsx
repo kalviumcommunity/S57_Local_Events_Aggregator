@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
-import "./Swiper.css";
+import { Calendar, MapPin, Users } from "lucide-react";
 
 const MySwiper = () => {
   useEffect(() => {
@@ -11,10 +11,10 @@ const MySwiper = () => {
       centeredSlides: true,
       slidesPerView: "auto",
       coverflowEffect: {
-        rotate: 0,
+        rotate: 50,
         stretch: 0,
         depth: 100,
-        modifier: 2,
+        modifier: 1,
         slideShadows: true,
       },
       keyboard: {
@@ -23,11 +23,16 @@ const MySwiper = () => {
       mousewheel: {
         thresholdDelta: 70,
       },
-      spaceBetween: 60,
+      spaceBetween: 30,
       loop: true,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
     });
 
@@ -36,224 +41,115 @@ const MySwiper = () => {
     };
   }, []);
 
+  const events = [
+    {
+      title: "Local Music Festival",
+      date: "Aug 15-17, 2023",
+      location: "Central Park",
+      image:
+        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      category: "Music",
+      attendees: "5000+",
+    },
+    {
+      title: "Food Truck Fiesta",
+      date: "Sep 5, 2023",
+      location: "Downtown Square",
+      image:
+        "https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      category: "Food",
+      attendees: "2000+",
+    },
+    {
+      title: "Art in the Park",
+      date: "Sep 12, 2023",
+      location: "Riverside Gardens",
+      image:
+        "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      category: "Art",
+      attendees: "1000+",
+    },
+    {
+      title: "Local Theater Performance",
+      date: "Sep 20-22, 2023",
+      location: "Community Playhouse",
+      image:
+        "https://images.unsplash.com/photo-1507924538820-ede94a04019d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      category: "Theater",
+      attendees: "500",
+    },
+    {
+      title: "Farmers Market",
+      date: "Every Saturday",
+      location: "Main Street",
+      image:
+        "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      category: "Market",
+      attendees: "3000+",
+    },
+    {
+      title: "Local Sports Tournament",
+      date: "Oct 1-3, 2023",
+      location: "City Stadium",
+      image:
+        "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      category: "Sports",
+      attendees: "10000+",
+    },
+    {
+      title: "Tech Meetup",
+      date: "Oct 15, 2023",
+      location: "Innovation Hub",
+      image:
+        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      category: "Technology",
+      attendees: "300",
+    },
+  ];
+
   return (
-    <>
-      <div id="">
-        <div id="swiper-section" className="swiper-co">
-          <div className="swiper-heading">
-            <h2>Upcoming Events</h2>
-          </div>
-          <div className="swiper-container">
-            <div className="swiper">
-              <div className="swiper-wrapper">
-                <div
-                  onClick={() => {
-                    window.location.href = "/event";
-                  }}
-                  className="swiper-slide swiper-slide--one"
-                >
-                  <span>domestic</span>
-                  <div>
-                    <h2>Enjoy the exotic of sunny Hawaii</h2>
-                    <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      Maui, Hawaii
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide swiper-slide--two">
-                  <span>subtropical</span>
-                  <div>
-                    <h2>The Island of Eternal Spring</h2>
-                    <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      Lanzarote, Spanien
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide swiper-slide--three">
-                  <span>History</span>
-                  <div>
-                    <h2>Awesome Eiffel Tower</h2>
-                    <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      Paris, France
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide swiper-slide--four">
-                  <span>Mayans</span>
-                  <div>
-                    <h2>One of the safest states in Mexico</h2>
-                    <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      The Yucatan, Mexico
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide swiper-slide--five">
-                  <span>native</span>
-                  <div>
-                    <h2>The most popular yachting destination</h2>
-                    <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      Whitsunday Islands, Australia
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide swiper-slide--six">
-                  <span>native</span>
-                  <div>
-                    <h2>Another Great Destination</h2>
-                    <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      Example Island, Somewhere
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide swiper-slide--seven">
-                  <span>native</span>
-                  <div>
-                    <h2>Another Great Destination</h2>
-                    <p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      Example Island, Somewhere
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-pagination"></div>
-            </div>
-          </div>
-        </div>
+    <div className="relative w-full min-h-screen flex flex-col justify-center items-center bg-gradient-135 from-gray-100 to-blue-200 py-12">
+      <div className="mb-8">
+        <h2 className="font-poppins font-semibold text-4xl text-gray-800 text-center shadow-sm">
+          Upcoming Local Events
+        </h2>
       </div>
-    </>
+      <div className="swiper w-full max-w-6xl px-5 py-12">
+        <div className="swiper-wrapper">
+          {events.map((event, index) => (
+            <div
+              key={index}
+              className="swiper-slide w-72 h-96 rounded-3xl overflow-hidden relative shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2"
+            >
+              <span className="absolute top-5 left-5 z-10 px-4 py-1 font-poppins font-medium text-sm text-white bg-black bg-opacity-60 rounded-full">
+                {event.category}
+              </span>
+              <div className="absolute bottom-0 left-0 right-0 p-5 bg-black bg-opacity-70 text-white z-10 transition-transform duration-300 ease-in-out group-hover:translate-y-[-10px]">
+                <h2 className="font-poppins font-semibold text-lg mb-2">
+                  {event.title}
+                </h2>
+                <p className="font-poppins font-light text-sm mb-1 flex items-center">
+                  <Calendar className="w-4 h-4 mr-2" /> {event.date}
+                </p>
+                <p className="font-poppins font-light text-sm mb-1 flex items-center">
+                  <MapPin className="w-4 h-4 mr-2" /> {event.location}
+                </p>
+                <p className="font-poppins font-light text-sm flex items-center">
+                  <Users className="w-4 h-4 mr-2" /> {event.attendees} attendees
+                </p>
+              </div>
+              <div
+                className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-300 ease-in-out group-hover:scale-110"
+                style={{ backgroundImage: `url(${event.image})` }}
+              ></div>
+            </div>
+          ))}
+        </div>
+        <div className="swiper-pagination"></div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
+      </div>
+    </div>
   );
 };
 
