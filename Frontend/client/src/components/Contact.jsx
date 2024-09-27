@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react"; // Import lucide-react icons
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -29,8 +38,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="font-poppins bg-gradient-to-br from-[#667eea] to-[#764ba2] min-h-screen flex flex-col justify-center items-center p-8">
-      <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-lg p-12 flex max-w-4xl w-full gap-8">
+    <div className="font-poppins bg-[#1F2937] min-h-screen flex flex-col justify-center items-center p-8">
+      <div className="bg-[#2D3748] rounded-2xl shadow-lg p-12 flex max-w-4xl w-full gap-8">
         <motion.div
           className="flex-1"
           initial={{ opacity: 0, y: 50 }}
@@ -47,7 +56,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="Your Name"
-                className="w-full p-3 rounded-lg bg-white bg-opacity-20 text-white placeholder:text-white placeholder:opacity-70 focus:outline-none focus:bg-opacity-30 transition"
+                className="w-full p-3 rounded-lg bg-[#4A5568] text-white placeholder:text-gray-400 focus:outline-none focus:bg-[#718096] transition"
               />
             </div>
             <div className="relative">
@@ -58,7 +67,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="Your Email"
-                className="w-full p-3 rounded-lg bg-white bg-opacity-20 text-white placeholder:text-white placeholder:opacity-70 focus:outline-none focus:bg-opacity-30 transition"
+                className="w-full p-3 rounded-lg bg-[#4A5568] text-white placeholder:text-gray-400 focus:outline-none focus:bg-[#718096] transition"
               />
             </div>
             <div className="relative">
@@ -68,12 +77,12 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="Your Message"
-                className="w-full p-3 rounded-lg bg-white bg-opacity-20 text-white placeholder:text-white placeholder:opacity-70 focus:outline-none focus:bg-opacity-30 resize-none min-h-[120px] transition"
+                className="w-full p-3 rounded-lg bg-[#4A5568] text-white placeholder:text-gray-400 focus:outline-none focus:bg-[#718096] resize-none min-h-[120px] transition"
               />
             </div>
             <motion.button
               type="submit"
-              className="bg-green-500 text-white rounded-lg py-2 px-4 text-lg flex items-center justify-center gap-2 transition hover:bg-green-600"
+              className="bg-[#38A169] text-white rounded-lg py-2 px-4 text-lg flex items-center justify-center gap-2 transition hover:bg-[#2F855A]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -104,27 +113,27 @@ const ContactForm = () => {
           <div className="flex justify-center gap-4 mt-8">
             <a
               href="#"
-              className="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-opacity-30 transform hover:translate-y-[-3px]"
+              className="bg-[#2D3748] w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-[#4A5568] transform hover:translate-y-[-3px]"
             >
-              <i className="fab fa-facebook-f"></i>
+              <Facebook size={20} color="#3b5998" /> {/* Facebook Icon */}
             </a>
             <a
               href="#"
-              className="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-opacity-30 transform hover:translate-y-[-3px]"
+              className="bg-[#2D3748] w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-[#4A5568] transform hover:translate-y-[-3px]"
             >
-              <i className="fab fa-twitter"></i>
+              <Twitter size={20} color="#1DA1F2" /> {/* Twitter Icon */}
             </a>
             <a
               href="#"
-              className="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-opacity-30 transform hover:translate-y-[-3px]"
+              className="bg-[#2D3748] w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-[#4A5568] transform hover:translate-y-[-3px]"
             >
-              <i className="fab fa-instagram"></i>
+              <Instagram size={20} color="#C13584" /> {/* Instagram Icon */}
             </a>
             <a
               href="#"
-              className="bg-white bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-opacity-30 transform hover:translate-y-[-3px]"
+              className="bg-[#2D3748] w-10 h-10 rounded-full flex items-center justify-center text-white text-lg transition hover:bg-[#4A5568] transform hover:translate-y-[-3px]"
             >
-              <i className="fab fa-linkedin-in"></i>
+              <Linkedin size={20} color="#0077b5" /> {/* LinkedIn Icon */}
             </a>
           </div>
         </motion.div>
