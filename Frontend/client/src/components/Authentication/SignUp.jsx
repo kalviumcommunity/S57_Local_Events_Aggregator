@@ -20,7 +20,7 @@ const SignUp = () => {
         email,
         password,
       };
-      const response = await axios.post(`${BASE_URL}/register`, userData);
+      const response = await axios.post(`${BASE_URL}/register, userData`);
       console.log(response);
       if (response.data.success) {
         alert(response.data.message);
