@@ -17,7 +17,7 @@ const SignIn = () => {
         password,
       };
 
-      const response = await axios.post(`${BASE_URL}/login, userData`);
+      const response = await axios.post(`${BASE_URL}/login`, userData);
       console.log("Received response:", response.data);
 
       if (response.data.success) {
@@ -96,4 +96,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;x
+export default SignIn;

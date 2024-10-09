@@ -19,6 +19,7 @@ const Event = () => {
     popularity: "",
   });
   const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     fetchEvents();
@@ -39,15 +40,15 @@ const Event = () => {
       });
       const events = response.data;
       setAllEvents(events);
-      setFeaturedEvents(events.slice(0, 4)); // Only show 4 events initially
+      setFeaturedEvents(events.slice(0, 4));
     } catch (error) {
       console.error("Error fetching events:", error);
     }
   };
 
-  // Show all events when the user clicks "Explore All"
   const handleShowAll = () => {
     setShowAll(true);
+    setShowFilters(true);
   };
 
   const filteredEvents = allEvents.filter((event) => {
@@ -86,71 +87,70 @@ const Event = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
+      <main className="container mx-auto px-6 py-10">
+        <h1 className="text-5xl font-extrabold text-center mb-6 text-gray-800">
           Featured Events
         </h1>
 
         {/* Filter Section */}
-        <div className="mb-8 flex flex-wrap gap-4">
-          <input
-            type="text"
-            placeholder="Search events by name"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="border rounded-md p-2"
-          />
-          <select
-            value={filters.category}
-            onChange={(e) =>
-              setFilters({ ...filters, category: e.target.value })
-            }
-            className="border rounded-md p-2"
-          >
-            <option value="">All Categories</option>
-            <option value="Music">Music</option>
-            <option value="Art">Art</option>
-            <option value="Food">Food</option>
-            <option value="Sports">Sports</option>
-            <option value="Technology">Technology</option>
-          </select>
-
-          <input
-            type="date"
-            value={filters.date}
-            onChange={(e) => setFilters({ ...filters, date: e.target.value })}
-            className="border rounded-md p-2"
-          />
-
-          <input
-            type="text"
-            placeholder="Location"
-            value={filters.location}
-            onChange={(e) =>
-              setFilters({ ...filters, location: e.target.value })
-            }
-            className="border rounded-md p-2"
-          />
-
-          <button
-            onClick={() =>
-              setFilters({
-                category: "",
-                date: "",
-                location: "",
-                popularity: "",
-              })
-            }
-            className="bg-red-600 text-white px-3 py-2 rounded-md"
-          >
-            Clear Filters
-          </button>
-        </div>
+        {showFilters && (
+          <div className="mb-8 flex flex-col md:flex-row gap-4 bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <input
+              type="text"
+              placeholder="Search events by name"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="border border-gray-300 rounded-md p-3 w-full md:w-1/4 focus:outline-none focus:ring focus:ring-blue-300 transition duration-150"
+            />
+            <select
+              value={filters.category}
+              onChange={(e) =>
+                setFilters({ ...filters, category: e.target.value })
+              }
+              className="border border-gray-300 rounded-md p-3 w-full md:w-1/4 focus:outline-none focus:ring focus:ring-blue-300 transition duration-150"
+            >
+              <option value="">All Categories</option>
+              <option value="Music">Music</option>
+              <option value="Art">Art</option>
+              <option value="Food">Food</option>
+              <option value="Sports">Sports</option>
+              <option value="Technology">Technology</option>
+            </select>
+            <input
+              type="date"
+              value={filters.date}
+              onChange={(e) => setFilters({ ...filters, date: e.target.value })}
+              className="border border-gray-300 rounded-md p-3 w-full md:w-1/4 focus:outline-none focus:ring focus:ring-blue-300 transition duration-150"
+            />
+            <input
+              type="text"
+              placeholder="Location"
+              value={filters.location}
+              onChange={(e) =>
+                setFilters({ ...filters, location: e.target.value })
+              }
+              className="border border-gray-300 rounded-md p-3 w-full md:w-1/4 focus:outline-none focus:ring focus:ring-blue-300 transition duration-150"
+            />
+            <button
+              onClick={() =>
+                setFilters({
+                  category: "",
+                  date: "",
+                  location: "",
+                  popularity: "",
+                })
+              }
+              className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition duration-200"
+            >
+              Clear Filters
+            </button>
+          </div>
+        )}
 
         {/* Event Display Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {!showAll
             ? featuredEvents.map((event) => (
                 <EventCard
@@ -169,7 +169,7 @@ const Event = () => {
         </div>
 
         {/* Button to show all events */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           {!showAll && (
             <button
               onClick={handleShowAll}

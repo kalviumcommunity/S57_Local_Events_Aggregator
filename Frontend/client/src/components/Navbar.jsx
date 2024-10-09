@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Search, Music, Zap, Calendar, User } from "lucide-react";
+import {
+  Menu,
+  X,
+  Search,
+  Music,
+  Phone,
+  Zap,
+  Calendar,
+  User,
+} from "lucide-react";
 
 const NavItem = ({ to, icon, children }) => (
   <li className="nav-item">
@@ -51,15 +60,6 @@ const Navbar = () => {
           <span className="ml-1 text-teal-400">Hub</span>
         </Link>
 
-        <div className="relative w-64 hidden sm:block">
-          <input
-            type="text"
-            placeholder="Search for vibes..."
-            className="w-full bg-gray-900 text-white px-4 py-2 pl-10 rounded-full focus:outline-none focus:bg-gray-700 transition-all duration-300"
-          />
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white opacity-70" />
-        </div>
-
         <ul
           className={`${
             isOpen ? "block" : "hidden sm:flex"
@@ -68,11 +68,14 @@ const Navbar = () => {
           <NavItem to="/" icon={<Music />}>
             Trending
           </NavItem>
-          <NavItem to="/events" icon={<Calendar />}>
+          <NavItem to="/Event" icon={<Calendar />}>
             Events
           </NavItem>
-          <NavItem to="/discover" icon={<Zap />}>
-            Discover
+          <NavItem to="/MySwiper" icon={<Zap />}>
+            Upcoming
+          </NavItem>
+          <NavItem to="/Contact" icon={<Phone />}>
+            Contact
           </NavItem>
           <NavItem to="/profile" icon={<User />}>
             Profile
@@ -102,14 +105,17 @@ const Navbar = () => {
           <NavItem to="/" icon={<Music />}>
             Trending
           </NavItem>
-          <NavItem to="/events" icon={<Calendar />}>
+          <NavItem to="/Event" icon={<Calendar />}>
             Events
           </NavItem>
-          <NavItem to="/discover" icon={<Zap />}>
-            Discover
+          <NavItem to="/MySwiper" icon={<Zap />}>
+            Upcoming
           </NavItem>
           <NavItem to="/profile" icon={<User />}>
             Profile
+          </NavItem>
+          <NavItem to="/Contact" icon={<Phone />}>
+            Contact
           </NavItem>
           <NavItem to="/signin" icon={<User />}>
             Sign In

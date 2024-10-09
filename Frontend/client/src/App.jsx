@@ -6,13 +6,15 @@ import HomePage from "./components/LandingPage/HomePage";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage/MainPage";
 import MySwiper from "./components/Swiper";
-// import MainEvent from "./components/MainEvent";
+
 import Event from "./components/Event/Event";
 import SignIn from "./components/Authentication/SignIn";
 import SignUp from "./components/Authentication/SignUp";
 import ForgotPassword from "./components/Authentication/ForgotPassword";
 
 import "./App.css";
+import { Contact } from "lucide-react";
+import ContactForm from "./components/Contact";
 
 // Your Google Analytics tracking ID
 const trackingId = "G-SSM973B738";
@@ -46,6 +48,7 @@ function App() {
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/Event" element={<Event />} />
         <Route path="/MySwiper" element={<MySwiper />} />
+        <Route path="/Contact" element={<ContactForm />} />
         <Route path="/signin" element={<SignIn />} /> {/* Add Sign In route */}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />{" "}
