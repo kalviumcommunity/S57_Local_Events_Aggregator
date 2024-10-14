@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import {
-  Menu,
-  X,
-  Search,
-  Music,
-  Phone,
-  Zap,
-  Calendar,
-  User,
-} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { Menu, X, Music, Phone, Zap, Calendar, User } from "lucide-react";
+import UserMenu from "./Service/UserMenu"; // Import the UserMenu component
 
 const NavItem = ({ to, icon, children }) => (
   <li className="nav-item">
@@ -27,9 +19,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [username, setUsername] = useState(null);
+  const [showUserMenu, setShowUserMenu] = useState(false); // State for showing user menu
+  const navigate = useNavigate(); // For redirection
 
   useEffect(() => {
-    const fetchUsername = async () => {
+    const fetchUsername = () => {
       const storedUsername = localStorage.getItem("username");
       setUsername(storedUsername || null);
     };
@@ -43,10 +37,22 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLogout = () => {
+    alert("You have been logged out.");
+    localStorage.removeItem("username");
+    localStorage.removeItem("token"); // Optionally remove token
+    localStorage.removeItem("userId"); // Optionally remove userId
+    navigate("/signin"); // Redirect to the sign-in page
+  };
+
+  const handleContinue = () => {
+    navigate("/"); // Redirect to the main page
+  };
+
   return (
     <nav
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-gray-900 bg-opacity-95 shadow-lg" : "bg-gray-800"
+        scrolled ? "bg-gray-900 bg-opacity-95 shadow-lg" : "bg-black"
       } ${isOpen ? "h-auto" : ""}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
@@ -77,17 +83,22 @@ const Navbar = () => {
           <NavItem to="/Contact" icon={<Phone />}>
             Contact
           </NavItem>
-          <NavItem to="/profile" icon={<User />}>
-            Profile
-          </NavItem>
-          <NavItem to="/signin" icon={<User />}>
-            Sign In
-          </NavItem>
 
-          {/* Display the username like other nav items if available */}
-          {username && (
-            <NavItem to="/profile" icon={<User />}>
-              {username}
+          {/* Display username with UserMenu if available */}
+
+          {username ? (
+            <NavItem to="/Contact" icon={<User />}>
+              <UserMenu
+                username={username}
+                onLogout={handleLogout}
+                onContinue={handleContinue}
+                show={showUserMenu}
+                toggleShow={() => setShowUserMenu(!showUserMenu)} // Toggle UserMenu visibility
+              />
+            </NavItem>
+          ) : (
+            <NavItem to="/signin" icon={<User />}>
+              Sign In
             </NavItem>
           )}
         </ul>
@@ -101,7 +112,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <ul className="sm:hidden flex flex-col items-center bg-gray-800 text-white text-lg space-y-3 py-2">
+        <ul className="sm:hidden flex flex-col items-center bg-black text-white text-lg space-y-3 py-2">
           <NavItem to="/" icon={<Music />}>
             Trending
           </NavItem>
@@ -111,20 +122,23 @@ const Navbar = () => {
           <NavItem to="/MySwiper" icon={<Zap />}>
             Upcoming
           </NavItem>
-          <NavItem to="/profile" icon={<User />}>
-            Profile
-          </NavItem>
           <NavItem to="/Contact" icon={<Phone />}>
             Contact
           </NavItem>
-          <NavItem to="/signin" icon={<User />}>
-            Sign In
-          </NavItem>
 
           {/* Display username in mobile dropdown */}
-          {username && (
-            <NavItem to="/profile" icon={<User />}>
-              {username}
+          {username ? (
+            <UserMenu
+              icon={<User />}
+              username={username}
+              onLogout={handleLogout}
+              onContinue={handleContinue}
+              show={showUserMenu}
+              toggleShow={() => setShowUserMenu(!showUserMenu)} // Toggle UserMenu visibility
+            />
+          ) : (
+            <NavItem to="/signin" icon={<User />}>
+              Sign In
             </NavItem>
           )}
         </ul>

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import BASE_URL from "../../config";
-import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // For navigation
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,22 +23,19 @@ const SignIn = () => {
         console.log("Login successful");
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("userId", response.data.user.id);
+        localStorage.setItem("username", response.data.user.username); // Store the username
 
-        navigate("/MainPage")
-          .then(() => {
-            alert("Login successful!");
-          })
-          .catch((error) => {
-            console.error("Navigation failed:", error);
-            alert(response.data.message);
-          });
+        alert("Login successful!");
+        navigate("/MainPage"); // Navigate after alert to improve UX
       } else {
         console.log("Login failed");
         alert(response.data.message);
       }
     } catch (error) {
       console.error("Error during login:", error);
-      alert(response.data.message || "An error occurred. Please try again.");
+      const errorMessage =
+        error.response?.data?.message || "An error occurred. Please try again.";
+      alert(errorMessage); // Use the error message from the response if available
     }
   };
 

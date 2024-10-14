@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// SignUp.js
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import BASE_URL from "../../config";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../Service/UserContext"; 
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { setCurrentUser } = useUserContext();  
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -20,12 +22,17 @@ const SignUp = () => {
         email,
         password,
       };
-      const response = await axios.post(`${BASE_URL}/register, userData`);
+      const response = await axios.post(`${BASE_URL}/register`, userData);
       console.log(response);
       if (response.data.success) {
         alert(response.data.message);
+        
+        const userName = response.data.userName;
+
+        setCurrentUser({ name: userName }); 
+        localStorage.setItem("username", userName); 
+        console.log(userName)
         navigate("/MainPage");
-        localStorage.setItem("username", response.data.userName);
       } else {
         alert(response.data.message);
       }
@@ -34,16 +41,13 @@ const SignUp = () => {
       alert("An error occurred during signup. Please try again.");
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-100 to-gray-300">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full transform transition-all hover:scale-105"
+        className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full"
       >
-        <h2 className="text-4xl font-bold mb-6 text-gray-700">
-          Create an Account
-        </h2>
+        <h2 className="text-4xl font-bold mb-6 text-gray-700">Create an Account</h2>
         <input
           type="text"
           placeholder="Full Name"

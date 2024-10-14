@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CalendarDays, MapPin, Music } from "lucide-react";
-import Navbar from "../Navbar"; // Ensure the correct path to your Navbar component
+import Navbar from "../Navbar";
+import { useUserContext } from "../Service/UserContext";
+
 
 const HomePage = () => {
+  const { currentUser } = useUserContext(); 
+
+  console.log(currentUser);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -14,8 +20,7 @@ const HomePage = () => {
             Welcome to <span className="text-blue-600">Vibe Hub</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Your ultimate destination for local events and unforgettable
-            experiences.
+            Your ultimate destination for local events and unforgettable experiences.
           </p>
           <div className="flex justify-center mb-10">
             <Link to="/signup">
@@ -32,30 +37,22 @@ const HomePage = () => {
         </div>
 
         {/* Features Section */}
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
-          What We Offer
-        </h2>
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">What We Offer</h2>
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white p-8 rounded-lg shadow-lg text-center transition transform hover:shadow-xl">
             <CalendarDays className="w-16 h-16 text-blue-600 mx-auto mb-4" />
             <h3 className="text-2xl font-semibold mb-2">Discover Events</h3>
-            <p className="text-gray-600">
-              Find exciting local events tailored to your interests.
-            </p>
+            <p className="text-gray-600">Find exciting local events tailored to your interests.</p>
           </div>
           <div className="bg-white p-8 rounded-lg shadow-lg text-center transition transform hover:shadow-xl">
             <MapPin className="w-16 h-16 text-blue-600 mx-auto mb-4" />
             <h3 className="text-2xl font-semibold mb-2">Local Experiences</h3>
-            <p className="text-gray-600">
-              Explore unique experiences in your area.
-            </p>
+            <p className="text-gray-600">Explore unique experiences in your area.</p>
           </div>
           <div className="bg-white p-8 rounded-lg shadow-lg text-center transition transform hover:shadow-xl">
             <Music className="w-16 h-16 text-blue-600 mx-auto mb-4" />
             <h3 className="text-2xl font-semibold mb-2">Connect with Others</h3>
-            <p className="text-gray-600">
-              Meet like-minded people and create lasting memories.
-            </p>
+            <p className="text-gray-600">Meet like-minded people and create lasting memories.</p>
           </div>
         </div>
 
