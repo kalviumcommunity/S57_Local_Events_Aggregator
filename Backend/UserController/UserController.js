@@ -32,7 +32,6 @@ const signupUser = async (req, res) => {
       success: true,
       message: "User registered successfully",
       userName: name,
-      // redirectUrl: "/dashboard" // Assuming you have a dashboard page
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
