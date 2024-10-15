@@ -87,7 +87,7 @@ const Navbar = () => {
           {/* Display username with UserMenu if available */}
 
           {username ? (
-            <NavItem to="/Contact" icon={<User />}>
+            <NavItem to="/UserMenu" icon={<User />}>
               <UserMenu
                 username={username}
                 onLogout={handleLogout}
