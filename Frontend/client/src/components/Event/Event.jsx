@@ -35,7 +35,7 @@ const Event = () => {
     };
 
     try {
-      const response = await axios.get("http://localhost:3000/api/events", {
+      const response = await axios.get("https://vibeshub.onrender.com/api/events", {
         params,
       });
       const events = response.data;
