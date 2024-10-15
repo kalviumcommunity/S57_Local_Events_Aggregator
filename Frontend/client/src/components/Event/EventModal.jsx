@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, X, Tag, User, Users, Link } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  X,
+  Tag,
+  User,
+  Users,
+  Link as LinkIcon,
+} from "lucide-react";
 
 const EventModal = ({ event, onClose }) => {
   const [timeRemaining, setTimeRemaining] = useState("");
@@ -96,8 +104,8 @@ const EventModal = ({ event, onClose }) => {
           </div>
 
           {/* Event Website */}
-          <div className="flex items-center">
-            <Link className="w-5 h-5 text-gray-500 mr-2" />
+          <div className="flex items-center mb-4">
+            <LinkIcon className="w-5 h-5 text-gray-500 mr-2" />
             <a
               href={event.websiteLink}
               target="_blank"
@@ -117,9 +125,14 @@ const EventModal = ({ event, onClose }) => {
           >
             Close
           </button>
-          <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
-            RSVP / Buy Ticket
-          </button>
+          <a
+            href={event.websiteLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+          >
+            Go to Website
+          </a>
         </div>
       </div>
     </div>

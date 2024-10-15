@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, Music, Phone, Zap, Calendar, User } from "lucide-react";
 import UserMenu from "./Service/UserMenu"; // Import the UserMenu component
 
 const NavItem = ({ to, icon, children }) => (
-  <li className="nav-item">
+  <li className="flex">
     <Link
       to={to}
-      className="flex items-center text-white text-lg font-medium hover:text-teal-400 transition-all"
+      className="flex items-center text-white text-base font-medium hover:text-teal-400 transition-all"
     >
       {icon}
       <span className="ml-2">{children}</span>
@@ -19,16 +19,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [username, setUsername] = useState(null);
-  const [showUserMenu, setShowUserMenu] = useState(false); // State for showing user menu
-  const navigate = useNavigate(); // For redirection
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUsername = () => {
-      const storedUsername = localStorage.getItem("username");
-      setUsername(storedUsername || null);
-    };
-
-    fetchUsername();
+    const storedUsername = localStorage.getItem("username");
+    setUsername(storedUsername || null);
   }, []);
 
   useEffect(() => {
@@ -40,22 +36,23 @@ const Navbar = () => {
   const handleLogout = () => {
     alert("You have been logged out.");
     localStorage.removeItem("username");
-    localStorage.removeItem("token"); // Optionally remove token
-    localStorage.removeItem("userId"); // Optionally remove userId
-    navigate("/signin"); // Redirect to the sign-in page
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    navigate("/signin");
   };
 
   const handleContinue = () => {
-    navigate("/"); // Redirect to the main page
+    navigate("/MainPage");
   };
 
   return (
     <nav
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-gray-900 bg-opacity-95 shadow-lg" : "bg-black"
-      } ${isOpen ? "h-auto" : ""}`}
+        scrolled ? "bg-gray-900 shadow-lg" : "bg-black"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Brand logo */}
         <Link
           to="/"
           className="flex items-center text-2xl font-bold text-white"
@@ -66,11 +63,8 @@ const Navbar = () => {
           <span className="ml-1 text-teal-400">Hub</span>
         </Link>
 
-        <ul
-          className={`${
-            isOpen ? "block" : "hidden sm:flex"
-          } space-x-8 text-white text-lg font-medium`}
-        >
+        {/* Desktop Menu */}
+        <ul className="hidden sm:flex space-x-8 items-center">
           <NavItem to="/" icon={<Music />}>
             Trending
           </NavItem>
@@ -84,18 +78,24 @@ const Navbar = () => {
             Contact
           </NavItem>
 
-          {/* Display username with UserMenu if available */}
-
+          {/* Display username or Sign In */}
           {username ? (
-            <NavItem to="/UserMenu" icon={<User />}>
+            <div className="relative">
+              <button
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                className="flex items-center text-white text-base font-medium hover:text-teal-400"
+              >
+                <User />
+                <span className="ml-2">{username}</span>
+              </button>
               <UserMenu
                 username={username}
                 onLogout={handleLogout}
                 onContinue={handleContinue}
                 show={showUserMenu}
-                toggleShow={() => setShowUserMenu(!showUserMenu)} // Toggle UserMenu visibility
+                toggleShow={() => setShowUserMenu(!showUserMenu)}
               />
-            </NavItem>
+            </div>
           ) : (
             <NavItem to="/signin" icon={<User />}>
               Sign In
@@ -103,16 +103,18 @@ const Navbar = () => {
           )}
         </ul>
 
+        {/* Mobile Menu Toggle */}
         <button
-          className="text-white sm:hidden"
+          className="sm:hidden text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
-        <ul className="sm:hidden flex flex-col items-center bg-black text-white text-lg space-y-3 py-2">
+        <ul className="flex flex-col items-center bg-black text-white text-base space-y-3 py-4 sm:hidden">
           <NavItem to="/" icon={<Music />}>
             Trending
           </NavItem>
@@ -126,16 +128,24 @@ const Navbar = () => {
             Contact
           </NavItem>
 
-          {/* Display username in mobile dropdown */}
+          {/* Display username or Sign In for Mobile Menu */}
           {username ? (
-            <UserMenu
-              icon={<User />}
-              username={username}
-              onLogout={handleLogout}
-              onContinue={handleContinue}
-              show={showUserMenu}
-              toggleShow={() => setShowUserMenu(!showUserMenu)} // Toggle UserMenu visibility
-            />
+            <div className="relative">
+              <button
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                className="flex items-center text-white text-base font-medium hover:text-teal-400"
+              >
+                <User />
+                <span className="ml-2">{username}</span>
+              </button>
+              <UserMenu
+                username={username}
+                onLogout={handleLogout}
+                onContinue={handleContinue}
+                show={showUserMenu}
+                toggleShow={() => setShowUserMenu(!showUserMenu)}
+              />
+            </div>
           ) : (
             <NavItem to="/signin" icon={<User />}>
               Sign In

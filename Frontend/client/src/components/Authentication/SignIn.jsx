@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import BASE_URL from "../../config";
+import Alert from "../Alert"; // Import the Alert component
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // For navigation
+  const [alertMessage, setAlertMessage] = useState(null); // State for alert message
+  const [alertType, setAlertType] = useState(""); // State for alert type
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,25 +20,35 @@ const SignIn = () => {
       };
 
       const response = await axios.post(`${BASE_URL}/login`, userData);
-      console.log("Received response:", response.data);
+      console.log("Received response:", response.data.user?.name);
 
       if (response.data.success) {
         console.log("Login successful");
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("userId", response.data.user.id);
-        localStorage.setItem("username", response.data.user.username); // Store the username
-
-        alert("Login successful!");
-        navigate("/MainPage"); // Navigate after alert to improve UX
+        localStorage.setItem("username", response.data.user.name);
+        setAlertMessage("Login successful!");
+        setAlertType("success");
+        navigate("/MainPage");
       } else {
         console.log("Login failed");
-        alert(response.data.message);
+        setAlertMessage(response.data.message);
+        setAlertType("error");
       }
     } catch (error) {
       console.error("Error during login:", error);
       const errorMessage =
         error.response?.data?.message || "An error occurred. Please try again.";
-      alert(errorMessage); // Use the error message from the response if available
+      if (error.response?.status === 400) {
+        setAlertMessage("Invalid Email");
+        setAlertType("error");
+      } else if (error.response?.status === 401) {
+        setAlertMessage("Invalid Password");
+        setAlertType("error");
+      } else {
+        setAlertMessage(errorMessage);
+        setAlertType("error");
+      }
     }
   };
 
@@ -46,6 +59,8 @@ const SignIn = () => {
         className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full transform transition-all hover:scale-105"
       >
         <h2 className="text-4xl font-bold mb-6 text-gray-700">Welcome Back</h2>
+        {alertMessage && <Alert message={alertMessage} type={alertType} />}{" "}
+        {/* Render the alert */}
         <input
           type="email"
           placeholder="Email Address"
