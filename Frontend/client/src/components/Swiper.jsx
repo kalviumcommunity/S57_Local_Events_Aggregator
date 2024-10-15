@@ -115,35 +115,38 @@ const MySwiper = () => {
         </h2>
       </div>
       <div className="swiper w-full max-w-6xl px-5 py-12">
-        <div className="swiper-wrapper">
+      <div className="swiper-wrapper">
           {events.map((event, index) => (
             <div
               key={index}
-              className="swiper-slide w-72 h-96 rounded-3xl overflow-hidden relative shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2"
+              className="swiper-slide"
+              style={{ width: "300px", height: "400px" }}
             >
-              <span className="absolute top-5 left-5 z-10 px-4 py-1 font-poppins font-medium text-sm text-white bg-black bg-opacity-60 rounded-full">
-                {event.category}
-              </span>
-              <div className="absolute bottom-0 left-0 right-0 p-5 bg-black bg-opacity-70 text-white z-10 transition-transform duration-300 ease-in-out group-hover:translate-y-[-10px]">
-                <h2 className="font-poppins font-semibold text-lg mb-2">
-                  {event.title}
-                </h2>
-                <p className="font-poppins font-light text-sm mb-1 flex items-center">
-                  <Calendar className="w-4 h-4 mr-2" /> {event.date}
-                </p>
-                <p className="font-poppins font-light text-sm mb-1 flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" /> {event.location}
-                </p>
-                <p className="font-poppins font-light text-sm flex items-center">
-                  <Users className="w-4 h-4 mr-2" /> {event.attendees} attendees
-                </p>
+              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-lg">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm">
+                  {event.category}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                  <h3 className="font-semibold text-lg mb-2">{event.title}</h3>
+                  <div className="flex items-center text-sm mb-1">
+                    <Calendar className="w-4 h-4 mr-2" /> {event.date}
+                  </div>
+                  <div className="flex items-center text-sm mb-1">
+                    <MapPin className="w-4 h-4 mr-2" /> {event.location}
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <Users className="w-4 h-4 mr-2" /> {event.attendees} attendees
+                  </div>
+                </div>
               </div>
-              <div
-                className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-300 ease-in-out group-hover:scale-110"
-                style={{ backgroundImage: `url(${event.image})` }}
-              ></div>
             </div>
           ))}
+      
         </div>
         <div className="swiper-pagination"></div>
         <div className="swiper-button-prev"></div>
